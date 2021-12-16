@@ -18,10 +18,12 @@ Before install make sure that checkbox "Add Python to PATH" is checked
 ![Check Add python to PATH](https://github.com/crypto0master/bombcrypto-bot/blob/main/readme-images/pythontopath.png)
 
 
-Unzip the bot folder and copy the path 
+Unzip the bot folder and copy the path
+
 ![Copy PATH](https://github.com/crypto0master/bombcrypto-bot/blob/main/readme-images/address.png)
 
 Press win+R put "cmd" and open command line 
+
 ![CMD](https://github.com/crypto0master/bombcrypto-bot/blob/main/readme-images/cmd.png)
 
 write "cd" + path to bot 
