@@ -45,3 +45,7 @@ pip3 install -r requirements.txt
 python index.py
 ```
 ![RUN](https://github.com/crypto0master/bombcrypto-bot/blob/main/readme-images/run.png)
+
+
+# HOT TO SEND SCREENSHOTS TO TELEGRAM
+![RUN](https://github.com/crypto0master/bombcrypto-bot/blob/main/readme-images/telegram.png)
