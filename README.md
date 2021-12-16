@@ -1,5 +1,7 @@
 # bombcrypto-bot
 Full autoplay bot for bombcrypto game with captcha solver and telegram logs
+![Captcha](https://github.com/crypto0master/bombcrypto-bot/blob/main/readme-images/captcha.gif)
+
 
 To use:
   
