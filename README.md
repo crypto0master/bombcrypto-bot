@@ -5,7 +5,7 @@ To use:
   
   `pip install -r requirements.txt`
   
-  `python indexpy`
+  `python index.py`
 
 Requirements:
 Python version 3.8 for some libs
