@@ -9,6 +9,7 @@ from src.logger import logger, loggerMapClicked
 from random import randint
 from random import random
 
+
 import numpy as np
 import mss
 import pyautogui
@@ -193,21 +194,7 @@ def printSreen():
         return sct_img[:,:,:3]
 
 
-def print_dots(dots):
-    now = time.time()
-    scr = "tr"
-    myScreenshot = pyautogui.screenshot()
-    myScreenshot.save(r'screen{}.png'.format(now))
-    image = cv2.imread('screen{}.png'.format(now))
 
-    for dot in dots:
-        print("DOT", dot[0], dot[1])
-        image = cv2.circle(image, (int(dot[0]),int(dot[1])), radius=2, color=(0, 0, 255), thickness=-1)
-
-    cv2.imwrite('screenn{}{}.png'.format(now, scr), image)
-    photo = open('screenn{}{}.png'.format(now, scr), 'rb')
-    bot.send_message(c["telegram_chat_id"], "BOMBCRYPTO " + account_id + " DOTS")
-    bot.send_photo(c["telegram_chat_id"], photo)
 
 def positions(target, threshold=ct['default'], scr='false'):
     now = time.time()
@@ -228,16 +215,7 @@ def positions(target, threshold=ct['default'], scr='false'):
     for (x, y) in zip(xloc, yloc):
         rectangles.append([int(x), int(y), int(w), int(h)])
         rectangles.append([int(x), int(y), int(w), int(h)])
-        if(scr=='tr'):
-            cv2.rectangle(image, (x, y) , (x + w, y + h), (0,255,255),2)
 
-    if(scr=='tr'):
-        cv2.imwrite('screenn{}{}.png'.format(now, scr), image)
-        photo = open('screenn{}{}.png'.format(now, scr), 'rb')
-        bot.send_message(c["telegram_chat_id"], "BOMBCRYPTO " + account_id + " screenshot")
-        bot.send_photo(c["telegram_chat_id"], photo)
-        #os.remove('screenn{}{}.png'.format(now, scr))
-        #os.remove('screen{}.png'.format(now))
 
     rectangles, weights = cv2.groupRectangles(rectangles, 1, 0.2)
     return rectangles
@@ -409,7 +387,7 @@ def login():
         pyautogui.hotkey('ctrl','f5')
         return
 
-    positions(images['connect-wallet'], threshold=ct['default'], scr='tr')
+   #positions(images['connect-wallet'], threshold=ct['default'], scr='tr')
     if clickBtn(images['connect-wallet'], name='connectWalletBtn', timeout = 10):
         solveCaptcha1()
         login_attempts = login_attempts + 1
