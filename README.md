@@ -49,3 +49,12 @@ python index.py
 
 # HOT TO SEND SCREENSHOTS TO TELEGRAM
 ![RUN](https://github.com/crypto0master/bombcrypto-bot/blob/main/readme-images/telegram.png)
+
+1. Go to official telegram [BotFather](https://t.me/BotFather/).
+2. Create your bot and copy bot-token (eg. 5021546203:AAHeK199jW25dfvslkOhMzAumzVecSxvVZw )
+4. Open config.yaml in your bot folder and paste bot-token to "telegram_token" 
+5. In config.yaml set "log_telegram" to "True"
+6. Go to [userinfobot](https://t.me/userinfobot) , send "/start" and copy your telegram id
+7. In config.yaml set "telegram_chat_id" to your telegram_id
+8. Go to your telegram bot and send "/start"
+9. Start bot
