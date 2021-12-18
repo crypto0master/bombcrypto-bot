@@ -701,7 +701,7 @@ def solveCaptchaUntillSolved(attempt=0):
     captcha_result = solveCaptcha()
     if captcha_result != 'no_captcha':
         time.sleep(2)
-        captchaUntilSolved(attempt + 1)
+        solveCaptchaUntillSolved(attempt + 1)
     else:
         return attempt
     
