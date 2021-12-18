@@ -348,12 +348,12 @@ def goToHeroes():
         global login_attempts
         login_attempts = 0
 
-    solveCaptcha()
+    solveCaptchaUntillSolved()
     #TODO tirar o sleep quando colocar o pulling
     time.sleep(1)
     clickBtn(images['hero-icon'])
     time.sleep(1)
-    solveCaptcha()
+    solveCaptchaUntillSolved()
 
 def goToGame():
     # in case of server overload popup
@@ -385,7 +385,7 @@ def login():
 
    #positions(images['connect-wallet'], threshold=ct['default'], scr='tr')
     if clickBtn(images['connect-wallet'], name='connectWalletBtn', timeout = 10):
-        solveCaptcha()
+        solveCaptchaUntillSolved()
         login_attempts = login_attempts + 1
         logger('🎉 Connect wallet button detected, logging in!')
         #TODO mto ele da erro e poco o botao n abre
@@ -623,7 +623,7 @@ def main():
 
         if now - last["check_for_captcha"] > addRandomness(t['check_for_captcha'] * 60):
             last["check_for_captcha"] = now
-            solveCaptcha()
+            solveCaptchaUntillSolved()
 
         if logo_found == 1:
             logo_found = 0
@@ -682,7 +682,7 @@ def main():
             continue
 
         if now - last["refresh_heroes"] > addRandomness( t['refresh_heroes_positions'] * 60):
-            solveCaptcha()
+            solveCaptchaUntillSolved()
             last["refresh_heroes"] = now
             refreshHeroesPositions()
 
@@ -697,5 +697,13 @@ def main():
 
         time.sleep(1)
 
-main()
+def solveCaptchaUntillSolved(attempt=0):
+    captcha_result = solveCaptcha()
+    if captcha_result != 'no_captcha':
+        time.sleep(2)
+        captchaUntilSolved(attempt + 1)
+    else:
+        return attempt
+    
 
+main()
