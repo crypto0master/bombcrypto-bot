@@ -698,7 +698,7 @@ def main():
         time.sleep(1)
 
 def solveCaptchaUntillSolved(attempt=0):
-    captcha_result = solveCaptcha()
+    captcha_result = solveCaptcha(pyautogui.PAUSE)
     if captcha_result != 'no_captcha':
         time.sleep(2)
         solveCaptchaUntillSolved(attempt + 1)
