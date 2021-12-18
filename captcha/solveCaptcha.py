@@ -306,7 +306,7 @@ def solveCaptcha():
     robotT = date.a(screenshot, popup_pos)
     if len(popup_pos) == 0:
         print('no captcha popup found!')
-        return
+        return 'no_captcha'
     img = captchaImg(img, popup_pos[0])
     background_digits = getBackgroundText()
     print('background = {}'.format(background_digits))
@@ -321,29 +321,28 @@ def solveCaptcha():
     def movePercentage(n):
         current_x,_ = pyautogui.position()
         speed_factor = 2
-        slider_size = 300
+        slider_size = 305
         destination = x+r()+n*slider_size
         randomness = random()/6
         speed = (abs(current_x - destination)/slider_size)*speed_factor + randomness
-        pyautogui.moveTo(destination,y+r(),speed,pyautogui.easeOutQuad)
+        pyautogui.moveTo(destination,y+r() + randint(-25,25),speed,pyautogui.easeOutQuad)
 
     randomness = random()/5
     movePercentage(.4+randomness)
     if has_found[0]:
-        return
+        return 'found'
     randomness = random()/5
     movePercentage(-0.1+randomness)
     if has_found[0]:
-        return
+        return 'found'
     randomness = random()/5
     movePercentage(1+randomness)
     if has_found[0]:
-        return
+        return 'found'
     pyautogui.mouseUp()
 
     time.sleep(13)
-    solveCaptcha()
-    return
+    return 'not_found'
 
 if __name__ == '__main__':
     solveCaptcha()
