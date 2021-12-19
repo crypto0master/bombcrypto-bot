@@ -353,6 +353,7 @@ def goToHeroes():
     time.sleep(1)
     clickBtn(images['hero-icon'])
     time.sleep(1)
+    clickBtn(images['hero-icon'])
     solveCaptchaUntillSolved()
 
 def goToGame():
