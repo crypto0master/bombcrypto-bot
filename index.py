@@ -344,14 +344,15 @@ def clickFullBarButtons():
     return len(not_working_full_bars)
 
 def goToHeroes():
-    if clickBtn(images['go-back-arrow']):
+    if clickBtn(images['go-back-arrow'], threshold=0.7):
         global login_attempts
         login_attempts = 0
+    clickBtn(images['go-back-arrow'])
 
     solveCaptchaUntillSolved()
     #TODO tirar o sleep quando colocar o pulling
     time.sleep(1)
-    clickBtn(images['hero-icon'])
+    clickBtn(images['hero-icon'], threshold=0.7)
     time.sleep(1)
     clickBtn(images['hero-icon'])
     solveCaptchaUntillSolved()
